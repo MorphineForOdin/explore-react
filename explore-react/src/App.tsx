@@ -1,13 +1,20 @@
-import './App.css';
+import { Routes, Route } from "react-router-dom";
+import Footer from "./core/Footer";
+import Header from "./core/Header";
+import NotFound from "./core/NotFound";
+import Auth from "./pages/Auth";
+import Home from "./pages/Home";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>in progress...</p>
-      </header>
-    </div>
+    <>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/auth" element={<Auth />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+      <Footer />
+    </>
   );
 }
-
-export default App;

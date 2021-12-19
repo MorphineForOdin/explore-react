@@ -1,0 +1,125 @@
+$color-primary: #5E7CE2;
+$color-primary-hover: #92B4F4;
+$color-primary-focus: #CFDEE7;
+
+$color-background: #79CEFF;
+
+$color-text: #1B2D2A;
+
+$border-radius: 1rem;
+$border-radius-sm: .5rem;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: $color-background;
+  background-image: linear-gradient(
+    315deg,
+    $color-background 0%,
+    #dcb5ff 67%,
+    #ffb8f0 100%
+  );
+  min-height: 100vh;
+  width: 100vw;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  color: $color-text;
+}
+
+.auth-form {
+  padding: 2rem;
+  border-radius: $border-radius;
+  background-color: white;
+  -webkit-box-shadow: 5px 5px 10px 0px rgba(27,45,42,0.5);
+  -moz-box-shadow: 5px 5px 10px 0px rgba(27,45,42,0.5);
+  box-shadow: 5px 5px 10px 0px rgba(27,45,42,0.5);
+
+  h1 {
+    margin-bottom: .5rem;
+  }
+
+  p {
+    margin-bottom: 2rem;
+  }
+
+  .form-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+    background-color: inherit;
+
+    .form-input {
+      width: 100%;
+      border: 2px solid $color-primary;
+      border-radius: $border-radius-sm;
+      font-family: inherit;
+      font-weight: inherit;
+      color: inherit;
+      outline: none;
+      padding: 1rem;
+      background: none;
+
+      &:hover {
+        border-color: $color-primary-hover;
+      }
+
+      &:focus {
+        border-color: $color-primary-focus;
+      }
+    }
+
+    .form-label {
+      position: absolute;
+      left: 1rem;
+      top: 1rem;
+      background-color: inherit;
+      padding: 0 .5rem;
+      border-radius: $border-radius-sm;
+      transition:
+        top 200ms ease-in,
+        left 200ms ease-in,
+        font-size 200ms ease-in;
+    }
+  }
+
+  .form-button {
+    display: block;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    background-color: $color-primary;
+    font-family: inherit;
+    font-size: inherit;
+    border-radius: $border-radius-sm;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: background-color 200ms ease-in;
+
+    &:hover {
+      background-color: $color-primary-hover;
+    }
+
+    &:focus {
+      background-color: $color-primary-focus;
+    }
+  }
+}
+
+.form-input:focus ~ .form-label,
+.form-input:not(:placeholder-shown).form-input:not(:focus) ~ .form-label {
+  top: -.5rem;
+  left: .8rem;
+  font-size: .8rem;
+}
