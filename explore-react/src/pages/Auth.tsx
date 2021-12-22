@@ -1,8 +1,14 @@
 export default function Auth() {
     return (
         <div className="auth-form">
-            <h1>Sign Up</h1>
-            <p>In order to have any access, you have to authenticate your identity.</p>
+            <div>
+                <h1 data-tooltip="long, very long tooltip tooltip tooltip...">Sign Up</h1>
+            </div>
+            <div>
+            <p data-tooltip="small tooltip">
+                In order to have any access, you have to authenticate your identity.
+            </p>
+            </div>
             <div className="form-group">
                 <input
                     type="email"

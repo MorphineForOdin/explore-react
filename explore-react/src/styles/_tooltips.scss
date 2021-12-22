@@ -1,0 +1,58 @@
+[data-tooltip] {
+    display: inline-block;
+    position: relative;
+
+    &::before,
+    &::after {
+        position: absolute;
+        z-index: 1;
+        opacity: 0;
+        transition: opacity .25s ease-in;
+    }
+
+    &::before {
+        content: "";
+        @extend [data-tooltip-bottom];
+        border: 1rem solid black;
+        border-color: transparent transparent black transparent;
+    }
+
+    &::after {
+        content: attr(data-tooltip);
+        @extend [data-tooltip-bottom];
+        /*width config*/
+        width: max-content;
+        max-width: 300px;
+        padding: 1rem;
+        border-radius: .5rem;
+        background:#000;
+        color: #fff;
+        text-align:center;
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    &:hover::after,
+    &:hover::before {
+        opacity: 1;
+    }
+
+    &[data-tooltip-bottom] {
+        &::before,
+        &::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        &::before {
+            top: calc(100% - 1rem);
+        }
+        &::after {
+            top: calc(100% + 1rem);
+        }
+    }
+
+    &:not([data-tooltip-persistent])::before,
+    &:not([data-tooltip-persistent])::after {
+        pointer-events: none;
+    }
+}
