@@ -1,0 +1,103 @@
+#fullScreenLoader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    transition: opacity 0.3s ease-in;
+}
+
+@keyframes rotationAnimation {
+    0% {
+        transform: rotate(0);
+    }
+
+    25% {
+        transform: rotate(90deg);
+    }
+
+    75% {
+        transform: rotate(180deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.spinner-double-ring-container {
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+    overflow: hidden;
+    background: none;
+}
+
+.spinner-double-ring {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform: translateZ(0) scale(1);
+    backface-visibility: hidden;
+    transform-origin: 0 0;
+}
+
+.spinner-double-ring>.spinner-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1rem solid #000;
+}
+
+.spinner-double-ring>.spinner-outer-ring {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    animation: rotationAnimation 3s linear infinite;
+    border-color: #ffb8f0 transparent #ffb8f0 transparent;
+}
+
+.spinner-double-ring>.spinner-center-ring {
+    width: calc(100% - 4rem);
+    height: calc(100% - 4rem);
+    top: 2rem;
+    left: 2rem;
+    animation: rotationAnimation 3s linear infinite reverse;
+    border-color: transparent #79ceff transparent #79ceff;
+}
+
+.spinner-double-ring>.spinner-inner-ring {
+    width: calc(100% - 8rem);
+    height: calc(100% - 8rem);
+    top: 4rem;
+    left: 4rem;
+    animation: rotationAnimation 3s linear infinite;
+    border-color: #b8ff51 transparent #b8ff51 transparent;
+}
+
+.spinner-outer-ring::before {
+    content: '';
+    position: absolute;
+    top: 1rem;
+    width: 1rem;
+    height: 1rem;
+    //background-color: #ffb8f0;
+    border-radius: 50%;
+}
+
+.spinner-outer-ring::after {
+    content: '';
+    position: absolute;
+}
+
+.spinner-inner-ring::before {
+    content: '';
+    position: absolute;
+}
+
+.spinner-inner-ring::after {
+    content: '';
+    position: absolute;
+}

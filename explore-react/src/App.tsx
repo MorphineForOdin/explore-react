@@ -5,10 +5,12 @@ import Header from './core/Header';
 import NotFound from './core/NotFound';
 import Auth from './pages/Auth';
 import Home from './pages/Home';
+import Loader from './core/Loader';
 
 export default function App() {
     return (
         <>
+            <Loader />
             <Routes>
                 <Route path="/auth" element={<Auth />} />
                 <Route
