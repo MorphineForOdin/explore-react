@@ -1,6 +1,9 @@
 @use './tooltips';
 @use './loaders';
 
+// * CORE *
+@use './core/spinner.scss';
+
 $color-primary: #5E7CE2;
 $color-primary-hover: #92B4F4;
 $color-primary-focus: #CFDEE7;
