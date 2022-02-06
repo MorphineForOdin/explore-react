@@ -1,4 +1,5 @@
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
+import AppContext from '../contexts/appContext';
 import Spinner from './Spinner';
 
 export default function Loader() {
@@ -20,8 +21,10 @@ export default function Loader() {
         }
     }, []);
 
+    const context = useContext(AppContext);
+
     return (
-        <div id="fullScreenLoader">
+        <div className={`loader ${context.showLoader ? 'show' : ''}`}>
             <Spinner size="global" />
         </div>
     );

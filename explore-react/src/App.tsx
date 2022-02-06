@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import AppContext from './contexts/appContext';
 import AuthGuard from './guards/AuthGuard';
 import Footer from './core/Footer';
 import Header from './core/Header';
@@ -8,8 +10,15 @@ import Home from './pages/Home';
 import Loader from './core/Loader';
 
 export default function App() {
+    const [showLoader, setShowLoader] = useState(false);
+
+    const appSettings = {
+        showLoader: showLoader,
+        setShowLoader
+    };
+
     return (
-        <>
+        <AppContext.Provider value={appSettings}>
             <Loader />
             <Routes>
                 <Route path="/auth" element={<Auth />} />
@@ -27,6 +36,6 @@ export default function App() {
                     }
                 />
             </Routes>
-        </>
+        </AppContext.Provider>
     );
 }

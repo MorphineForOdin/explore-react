@@ -1,11 +1,16 @@
-import { useState } from 'react';
+import { useContext } from 'react';
+import AppContext from '../contexts/appContext';
 
 const useLoader = () => {
+    const context = useContext(AppContext);
 
-    const [loading, setLoading] = useState(false);
+    const load = (handler: any) => {
+        context.setShowLoader(true);
+        return handler().finally(() => context.setShowLoader(false));
+    }
 
     return {
-        loading
+        load
     }
 }
 

@@ -1,15 +1,17 @@
 import { useNavigate } from 'react-router-dom';
+import useLoader from '../hooks/useLoader';
 import useAuthService from '../services/useAuthService';
 
 export default function Auth() {
     const navigate = useNavigate();
     const authService = useAuthService();
 
+    const { load } = useLoader();
+
     const onSignupClick = () =>
-        authService
-            .login()
-            .then(_ => navigate(-1))
-            .catch(error => console.log(error));
+        load(() => authService.login())
+            .then((_: any) => navigate(-1))
+            .catch((error: any) => console.log(error));
 
     return (
         <div className="auth-form">

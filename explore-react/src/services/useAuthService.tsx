@@ -3,7 +3,7 @@ const useAuthService = () => {
     const ACCESS_TOKEN_KEY = 'access_token';
 
     const login = () => 
-        new Promise((resolve, reject) => setTimeout(() => resolve('token'), 1000))
+        new Promise((resolve, reject) => setTimeout(() => resolve('token'), 2000))
             .then(token => {
                 if (!token) return false;
                 window.localStorage.setItem(ACCESS_TOKEN_KEY, token as string);
